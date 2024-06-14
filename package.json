@@ -4,7 +4,9 @@
   "description": "An API server for import duty calculator.",
   "main": "duty.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node duty.js",
+    "devStart": "nodemon duty.js"
   },
   "keywords": [
     "import",
@@ -16,5 +18,8 @@
   "dependencies": {
     "dotenv": "^16.4.5",
     "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.3"
   }
 }
