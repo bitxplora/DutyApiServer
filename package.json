@@ -1,0 +1,19 @@
+{
+  "name": "dutyapi",
+  "version": "1.0.0",
+  "description": "An API server for import duty calculator.",
+  "main": "duty.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "import",
+    "duty",
+    "calculator"
+  ],
+  "author": "Dayo Olutayo",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
