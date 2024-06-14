@@ -1,0 +1,3 @@
+pip install "pandas[excel]"
+
+sudo apt install sqlite3
