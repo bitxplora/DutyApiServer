@@ -13,6 +13,13 @@ app.get('/update', async (req, res) => {
     res.json(data);
   });
 
+app.get('/searches/:term', async (req, res) => {
+    const term = req.params.term;
+    const data = await db.search(term);
+    res.json(data);
+  });
+
+
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`)
