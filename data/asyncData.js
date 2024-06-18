@@ -29,7 +29,27 @@ class DbService {
       });
     });
   }
+
+  search(term) {
+    return new Promise((resolve, reject) =>  {
+
+      const updateQuery = `SELECT * FROM tariff_fts WHERE tariff_fts MATCH ? ORDER BY RANK`;
+
+      this.dbService.all(updateQuery, [term,], (err, searchResult) => {
+        if (err) {
+          console.log(err);
+          reject(err);
+        }
+          console.log(searchResult);
+          resolve(searchResult);
+      });
+    });
+  }
+
 }
+
+// const db = new DbService();
+// db.search('7507200000');
 
 
 module.exports = DbService;
