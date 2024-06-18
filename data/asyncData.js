@@ -46,10 +46,26 @@ class DbService {
     });
   }
 
+  exchangeRate(exchangeCode) {
+    return new Promise((resolve, reject) =>  {
+
+      const updateQuery = `SELECT * FROM exchange WHERE code = ?`;
+
+      this.dbService.get(updateQuery, [exchangeCode,], (err, searchResult) => {
+        if (err) {
+          console.log(err);
+          reject(err);
+        }
+          console.log(searchResult);
+          resolve(searchResult);
+      });
+    });
+  }
+
 }
 
 // const db = new DbService();
-// db.search('7507200000');
+// db.exchangeRate('USD');
 
 
 module.exports = DbService;
