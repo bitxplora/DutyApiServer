@@ -19,6 +19,12 @@ app.get('/searches/:term', async (req, res) => {
     res.json(data);
   });
 
+app.get('/exchanges/:exchangeCode', async (req, res) => {
+    const exchangeCode = req.params.exchangeCode;
+    const data = await db.exchangeRate(exchangeCode);
+    res.json(data);
+  });
+
 
 
 app.listen(port, () => {
