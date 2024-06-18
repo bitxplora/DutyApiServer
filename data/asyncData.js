@@ -29,12 +29,7 @@ class DbService {
       });
     });
   }
-
-
 }
-
-// const db = new DbService();
-// db.update();
 
 
 module.exports = DbService;
