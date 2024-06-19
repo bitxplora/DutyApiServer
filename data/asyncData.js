@@ -62,10 +62,26 @@ class DbService {
     });
   }
 
+  getCetCode(cetcode) {
+    return new Promise((resolve, reject) =>  {
+
+      const updateQuery = `SELECT * FROM tariff_fts WHERE cetcode = ?`;
+
+      this.dbService.get(updateQuery, [cetcode,], (err, searchResult) => {
+        if (err) {
+          console.log(err);
+          reject(err);
+        }
+          console.log(searchResult);
+          resolve(searchResult);
+      });
+    });
+  }
+
 }
 
-// const db = new DbService();
-// db.exchangeRate('USD');
+const db = new DbService();
+db.getCetCode('9901101019');
 
 
 module.exports = DbService;
