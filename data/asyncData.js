@@ -80,8 +80,8 @@ class DbService {
 
 }
 
-const db = new DbService();
-db.getCetCode('9901101019');
+// const db = new DbService();
+// db.getCetCode('9901101019');
 
 
 module.exports = DbService;

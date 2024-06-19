@@ -25,6 +25,12 @@ app.get('/exchanges/:exchangeCode', async (req, res) => {
     res.json(data);
   });
 
+app.get('/items/:cetcode', async (req, res) => {
+    const cetcode = req.params.cetcode;
+    const data = await db.getCetCode(cetcode);
+    res.json(data);
+  });
+
 
 
 app.listen(port, () => {
