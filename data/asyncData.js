@@ -1,10 +1,12 @@
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
 
+require('dotenv').config();
+
 class DbService {
 
   dbService;
-  dbSource = path.resolve(__dirname, "tariff.db");
+  dbSource = path.resolve(__dirname, process.env.DB);
 
 
   constructor() {
