@@ -37,10 +37,8 @@ class DbService {
 
       this.dbService.all(updateQuery, [term,], (err, searchResult) => {
         if (err) {
-          console.log(err);
           reject(err);
         }
-          console.log(searchResult);
           resolve(searchResult);
       });
     });
@@ -53,10 +51,8 @@ class DbService {
 
       this.dbService.get(updateQuery, [exchangeCode,], (err, searchResult) => {
         if (err) {
-          console.log(err);
           reject(err);
         }
-          console.log(searchResult);
           resolve(searchResult);
       });
     });
@@ -69,19 +65,14 @@ class DbService {
 
       this.dbService.get(updateQuery, [cetcode,], (err, searchResult) => {
         if (err) {
-          console.log(err);
           reject(err);
         }
-          console.log(searchResult);
           resolve(searchResult);
       });
     });
   }
 
 }
-
-// const db = new DbService();
-// db.getCetCode('9901101019');
 
 
 module.exports = DbService;
