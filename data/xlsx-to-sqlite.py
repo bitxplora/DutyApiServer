@@ -25,7 +25,8 @@ schema = '''
 
             CREATE TABLE IF NOT EXISTS update_t (
               last TEXT,
-              hash TEXT
+              tariff TEXT
+              exchange TEXT
             );
 
             CREATE VIRTUAL TABLE IF NOT EXISTS tariff_fts USING FTS5 (
