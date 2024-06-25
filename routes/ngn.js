@@ -9,7 +9,7 @@ ngnRouter.get('/update', async (req, res) => {
     res.json(data);
   });
 
-ngnRouter.get('/searches/:term', async (req, res) => {
+ngnRouter.get('/items/:term', async (req, res) => {
     const term = req.params.term;
     const data = await db.search(term);
     res.json(data);
