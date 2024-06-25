@@ -46,20 +46,6 @@ class DbService {
     });
   }
 
-  // search(item) {
-  //   return new Promise((resolve, reject) =>  {
-
-  //     const updateQuery = `SELECT * FROM tariff_fts WHERE tariff_fts MATCH ? ORDER BY RANK`;
-
-  //     this.dbService.all(updateQuery, [item,], (err, searchResult) => {
-  //       if (err) {
-  //         reject(err);
-  //       }
-  //         resolve(searchResult);
-  //     });
-  //   });
-  // }
-
   exchangeRate(exchangeCode) {
     return new Promise((resolve, reject) =>  {
 
