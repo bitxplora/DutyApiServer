@@ -1,5 +1,7 @@
 import pandas as pd
 import sqlite3
+from datetime import datetime
+import pytz
 
 conn = sqlite3.connect('tariff.db')
 cursor = conn.cursor()
@@ -25,7 +27,7 @@ schema = '''
 
             CREATE TABLE IF NOT EXISTS update_t (
               last TEXT,
-              tariff TEXT
+              tariff TEXT,
               exchange TEXT
             );
 
@@ -78,6 +80,11 @@ tariff_file.to_sql('tariff',conn, if_exists='append', index=False)
 exchange_file = pd.read_excel(r'exchange.xls')
 exchange_file.rename(columns={'Code': 'code', 'Name': 'name', 'Exchange rate': 'rate'}, inplace=True)
 exchange_file.to_sql('exchange',conn, if_exists='append', index=False)
+
+now = datetime.now(pytz.timezone('Africa/lagos'))
+now_str = f'{now.year}-{now.month}-{now.day}:{now.hour}.{now.minute}'
+
+cursor.execute("INSERT INTO update_t (last) VALUES (?)", (now_str,))
 
 conn.commit();
 conn.close();
