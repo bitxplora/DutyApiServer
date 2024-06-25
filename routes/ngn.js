@@ -9,9 +9,9 @@ ngnRouter.get('/update', async (req, res) => {
     res.json(data);
   });
 
-ngnRouter.get('/items/:search', async (req, res) => {
-    const search = req.params.search;
-    const data = await db.search(search);
+ngnRouter.get('/items/:item', async (req, res) => {
+    const item = req.params.item;
+    const data = await db.search(item);
     res.json(data);
   });
 
@@ -27,7 +27,7 @@ ngnRouter.get('/exchanges/:exchangeCode', async (req, res) => {
     res.json(data);
   });
 
-ngnRouter.get('/items/:cetcode', async (req, res) => {
+ngnRouter.get('/cetcodes/:cetcode', async (req, res) => {
     const cetcode = req.params.cetcode;
     const data = await db.getCetCode(cetcode);
     res.json(data);

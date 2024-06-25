@@ -32,12 +32,12 @@ class DbService {
     });
   }
 
-  search(search) {
+  search(item) {
     return new Promise((resolve, reject) =>  {
 
       const updateQuery = `SELECT * FROM tariff_fts WHERE tariff_fts MATCH ? ORDER BY RANK`;
 
-      this.dbService.all(updateQuery, [search], (err, searchResult) => {
+      this.dbService.all(updateQuery, [item], (err, searchResult) => {
         if (err) {
           reject(err);
         }
@@ -79,7 +79,7 @@ class DbService {
 
       const updateQuery = `SELECT * FROM tariff_fts WHERE cetcode = ?`;
 
-      this.dbService.get(updateQuery, [cetcode,], (err, searchResult) => {
+      this.dbService.get(updateQuery, [cetcode], (err, searchResult) => {
         if (err) {
           reject(err);
         }
