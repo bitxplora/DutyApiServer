@@ -7,6 +7,7 @@ class DbService {
 
   dbService;
   dbSource = path.resolve(__dirname, process.env.DB);
+  // dbSource = path.resolve(__dirname, './tariff.db');
 
 
   constructor() {
@@ -14,7 +15,7 @@ class DbService {
       if (err) {
         return console.error(err.message);
       }
-      // console.log('Connected');
+      console.log('Connected');
     });
   }
 
@@ -38,6 +39,19 @@ class DbService {
       const updateQuery = `SELECT * FROM tariff_fts WHERE tariff_fts MATCH ? ORDER BY RANK`;
 
       this.dbService.all(updateQuery, [item], (err, searchResult) => {
+        if (err) {
+          reject(err);
+        }
+          resolve(searchResult);
+      });
+    });
+  }
+
+  currency(currencies) {
+    return new Promise((resolve, reject) =>  {
+
+      const updateQuery = `SELECT * FROM exchange WHERE code IN (?, ?, ?)`;
+      this.dbService.all(updateQuery, currencies, (err, searchResult) => {
         if (err) {
           reject(err);
         }
@@ -76,5 +90,8 @@ class DbService {
 
 }
 
+// let db = new DbService();
+// let result = db.currency(['NGN', 'USD']);
+// console.log(result);
 
 module.exports = DbService;
