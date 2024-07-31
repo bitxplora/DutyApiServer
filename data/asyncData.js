@@ -13,9 +13,9 @@ class DbService {
   constructor() {
     this.dbService = new sqlite3.Database(this.dbSource, sqlite3.OPEN_READONLY, (err) => {
       if (err) {
-        return console.error(err.message);
+        // return console.error(err.message);
       }
-      console.log('Connected');
+      // console.log('Connected');
     });
   }
 
