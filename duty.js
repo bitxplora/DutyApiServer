@@ -17,6 +17,13 @@ const certFile = fs.readFileSync(__dirname + "/certs/duti.cert", 'utf-8');
 
 const options = {key: keyFile, cert: certFile};
 
+app.use(function (req, res, next) {
+  res.setHeader(
+    'Content-Security-Policy',
+    "default-src 'self'; connect-src 'self' http://10.35.53.85:5000;"
+    );
+    next();
+});
 app.use(cors({origin: '*'}));
 app.use(compression());
 
