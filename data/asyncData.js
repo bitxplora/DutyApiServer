@@ -60,6 +60,19 @@ class DbService {
     });
   }
 
+  getCurrencyCodes() {
+    return new Promise((resolve, reject) =>  {
+
+      const updateQuery = `SELECT code FROM exchange`;
+      this.dbService.all(updateQuery, (err, searchResult) => {
+        if (err) {
+          reject(err);
+        }
+        resolve(searchResult);
+      });
+    });
+  }
+
   exchangeRate(exchangeCode) {
     return new Promise((resolve, reject) =>  {
 
@@ -91,7 +104,7 @@ class DbService {
 }
 
 // let db = new DbService();
-// let result = db.currency(['NGN', 'USD']);
+// let result = db.getCurrencyCodes();
 // console.log(result);
 
 module.exports = DbService;
