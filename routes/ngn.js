@@ -21,6 +21,15 @@ ngnRouter.get('/exchanges', async (req, res) => {
     res.json(data);
   });
 
+ngnRouter.get('/currency/codes', async (req, res) => {
+    let currencyCodes = [];
+    const data = await db.getCurrencyCodes();
+    if (data) {
+      data.forEach((currency) => currencyCodes.push(currency.code))
+    }
+    res.json(currencyCodes);
+  });
+
 ngnRouter.get('/exchanges/:exchangeCode', async (req, res) => {
     let exchangeCode = req.params.exchangeCode;
     const data = await db.exchangeRate(exchangeCode);
