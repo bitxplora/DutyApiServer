@@ -20,7 +20,7 @@ const options = {key: keyFile, cert: certFile};
 app.use(function (req, res, next) {
   res.setHeader(
     'Content-Security-Policy',
-    "default-src 'self'; connect-src 'self' http://10.35.53.85:5000;"
+    "default-src 'self'; connect-src 'self'"
     );
     next();
 });
