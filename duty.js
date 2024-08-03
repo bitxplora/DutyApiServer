@@ -17,6 +17,7 @@ const certFile = fs.readFileSync(__dirname + "/certs/duti.cert", 'utf-8');
 
 const options = {key: keyFile, cert: certFile};
 
+app.disable('x-powered-by');
 app.use(function (req, res, next) {
   res.setHeader(
     'Content-Security-Policy',
